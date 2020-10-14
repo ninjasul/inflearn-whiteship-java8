@@ -2,7 +2,7 @@ package inflearn.whiteship.java8._03_javafi;
 
 import java.util.function.Function;
 
-public class FunctionEx01 {
+public class FunctionEx {
     public static void main(String[] args) {
         Function<Integer, Integer> plus10 = (i) -> i + 10;
         Function<Integer, Integer> multiply2 = (i) -> i * 2;
