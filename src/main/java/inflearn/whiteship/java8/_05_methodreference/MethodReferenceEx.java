@@ -38,6 +38,7 @@ public class MethodReferenceEx {
         Greeting greetingWithName = greetingFunction.apply("ninjasul");
         System.out.println(greetingWithName.getName());
 
+
         /**
          * 특정 객체의 인스턴스 메소드 참조
          */
