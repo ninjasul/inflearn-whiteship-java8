@@ -6,16 +6,11 @@ import lombok.Getter;
 import java.util.Optional;
 
 
+@Getter
 public class OnlineClass {
-    @Getter
     private Integer id;
-
-    @Getter
     private String title;
-
-    @Getter
     private boolean closed;
-
     private Progress progress;
 
     public OnlineClass(Integer id, String title, boolean closed) {
@@ -39,9 +34,5 @@ public class OnlineClass {
             ", title='" + title + '\'' +
             ", closed=" + closed +
             '}';
-    }
-
-    public Optional<Progress> getProgress() {
-        return Optional.ofNullable(progress);
     }
 }

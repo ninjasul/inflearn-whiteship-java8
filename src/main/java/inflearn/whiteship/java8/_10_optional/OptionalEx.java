@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 @Slf4j
 public class OptionalEx {
@@ -86,9 +87,6 @@ public class OptionalEx {
         return new OnlineClass(-1, "default class", false);
     }
 
-    /**
-     *
-     */
     private static OnlineClass getFirstClassUsingOrElseThrow(List<OnlineClass> classes, String title) {
         return classes.stream()
             .filter(oc -> oc.getTitle().contains(title))
@@ -101,7 +99,7 @@ public class OptionalEx {
         return classes.stream()
             .filter(oc -> oc.getTitle().contains(title) && Objects.nonNull(oc.getProgress()))
             .findFirst()
-            .flatMap(OnlineClass::getProgress)
+            .flatMap(OptionalEx::getProgress)
             .orElseGet(() -> new Progress(Duration.ZERO, false));
     }
 
@@ -109,6 +107,10 @@ public class OptionalEx {
         return classes.stream()
             .filter(oc -> oc.getTitle().contains(title))
             .findFirst()
-            .flatMap(OnlineClass::getProgress);
+            .flatMap(OptionalEx::getProgress);
+    }
+
+    private static Optional<Progress> getProgress(OnlineClass onlineClass) {
+        return Optional.ofNullable(onlineClass.getProgress());
     }
 }
