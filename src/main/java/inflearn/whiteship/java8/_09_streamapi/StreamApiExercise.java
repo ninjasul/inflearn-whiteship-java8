@@ -1,5 +1,7 @@
 package inflearn.whiteship.java8._09_streamapi;
 
+import inflearn.whiteship.java8.onlineclass.OnlineClass;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
