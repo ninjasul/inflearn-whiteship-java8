@@ -1,4 +1,4 @@
-package inflearn.whiteship.java8.datetime;
+package inflearn.whiteship.java8._11_datetime;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 @Slf4j
-public class DateTimeFormatterExample {
+public class _08_DateTimeFormatterEx {
     public static void main(String[] args) {
         /**
          * 1. DateTimeFormmater 를 이용한 포맷팅
@@ -19,22 +19,25 @@ public class DateTimeFormatterExample {
         DateTimeFormatter MMddyyyyFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         DateTimeFormatter yyyyMMddHHmmssFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-        log.info("{}", now.format(MMddyyyyFormatter));
-        log.info("{}", now.format(yyyyMMddHHmmssFormatter));
+        log.info("MMddyyyyFormatter: {}", now.format(MMddyyyyFormatter));
+        log.info("yyyyMMddHHmmssFormatter: {}", now.format(yyyyMMddHHmmssFormatter));
 
 
         /**
          * 2. DateTimeFormatter 를 이용한 파싱
          */
         LocalDate parsedDate = LocalDate.parse("06/27/1979", MMddyyyyFormatter);
-        log.info("{}", parsedDate);
+        log.info("parsedDate: {}", parsedDate);
 
         /**
          * 3. Date와 Instant 간 Conversion
          */
         Date date = new Date();
         Instant instant = date.toInstant();
-        Date newDate = Date.from(instant);
+        Date convertedDate = Date.from(instant);
+
+        log.info("convertedInstant: {}", instant);
+        log.info("convertedDate: {}", convertedDate);
 
         /**
          * 4. Calendar 와 LocalDateTime, ZonedDateTime 간 Conversion
